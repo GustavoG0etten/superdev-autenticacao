@@ -12,7 +12,7 @@ public class Usuario {
 	public Usuario() {
 		
 	}
-	
+		
 	public Usuario(int id, String nome, String login, String senha, boolean isAtivo) {
 		super();
 		this.id = id;
@@ -43,12 +43,12 @@ public class Usuario {
 	}
 
 
-	public String getLogin() {
+	public String getEmail() {
 		return login;
 	}
 
 
-	public void setLogin(String login) {
+	public void setEmail(String login) {
 		this.login = login;
 	}
 
@@ -63,12 +63,12 @@ public class Usuario {
 	}
 
 
-	public boolean isAtivo() {
+	public boolean getIsAtivo() {
 		return isAtivo;
 	}
 
 
-	public void setAtivo(boolean isAtivo) {
+	public void setIsAtivo(boolean isAtivo) {
 		this.isAtivo = isAtivo;
 	}
 	
