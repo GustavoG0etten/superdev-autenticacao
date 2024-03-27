@@ -1,4 +1,4 @@
-package br.com.projetoAutenticacao.DAO;
+package br.com.autenticacao.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.projetoAutenticacao.model.Usuario;
-import br.com.projetoAutenticacao.util.ConnectionFactory;
+import br.com.autenticacao.model.Usuario;
+import br.com.autenticacao.util.ConnectionFactory;
 
 public class UsuarioDAOImpl implements GenericDAO {
 	
@@ -91,7 +91,7 @@ public class UsuarioDAOImpl implements GenericDAO {
 		Usuario usuario = (Usuario) object;
 		PreparedStatement stmt = null;
 		String sql = "INSERT INTO usuario (nome, email, senha, is_ativo) "
-				+ " VALUES (?,?,?,?)";
+				+ " VALUES (?,?,MD5(?),?)";
 		try {
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, usuario.getNome());

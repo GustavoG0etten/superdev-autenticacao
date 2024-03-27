@@ -1,27 +1,22 @@
-package br.com.projetoAutenticacao.util;
+package br.com.autenticacao.util;
 
-
-import java.sql.Statement;
-import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class ConnectionFactory {
-	
-	public static final String PATH = "jdbc:postgresql://localhost:5432/db_autenticacao";
+
+	public static final String PATH = "jdbc:postgresql://localhost:5432/db_superdev";
 	public static final String USER = "postgres";
-	public static final String PASSWORD = "Mexem301@";
+	public static final String PASSWORD = "admin";
 	
-	// Método que retorna a conexão estabelecida 
-	public static Connection getConnection() throws Exception{
+	public static Connection getConnection() throws Exception {
 		try {
-			// Carregar o driver do postgresql
 			Class.forName("org.postgresql.Driver");
 			return DriverManager.getConnection(PATH, USER, PASSWORD);
-		} catch (Exception e) {
-			// Mostra uma mensagem de erro caso a conexão falhar
-			throw new Exception(e.getMessage());
+		} catch(Exception ex) {
+			throw new Exception(ex.getMessage());
 		}
 	}
 	
@@ -30,29 +25,27 @@ public class ConnectionFactory {
 	}
 	
 	public static void closeConnection(Connection conn, Statement stmt) throws Exception {
-		close(conn, stmt, null);
+		close(conn, stmt, null );
 	}
 	
-	public static void closeConnection(Connection conn) throws Exception {	
+	public static void closeConnection(Connection conn) throws Exception {
 		close(conn, null, null);
 	}
 	
 	private static void close(Connection conn, Statement stmt, ResultSet rs) throws Exception {
 		try {
-			if (rs != null) 
+			if (rs != null) {
 				rs.close();
-			
-			if (stmt != null) 
+			}
+			if (stmt != null) {
 				stmt.close();
-				
-			if (conn != null) 
+			}
+			if (conn != null) {
 				conn.close();
-			 
+			}
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
 		}
 	}
 	
-	
-
 }

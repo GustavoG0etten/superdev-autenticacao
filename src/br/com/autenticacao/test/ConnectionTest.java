@@ -1,8 +1,8 @@
-package br.com.projetoAutenticacao.test;
+package br.com.autenticacao.test;
 
 import java.sql.Connection;
 
-import br.com.projetoAutenticacao.util.ConnectionFactory;
+import br.com.autenticacao.util.ConnectionFactory;
 
 public class ConnectionTest {
 
@@ -12,12 +12,12 @@ public class ConnectionTest {
 			Connection conn = ConnectionFactory.getConnection();
 			
 			if (conn != null) {
-				System.out.println("Conexão foi estabelecida");
+				System.out.println("Conexão foi estabelecida!");
+				conn.close();
 			} else {
 				System.out.println("Houve algum problema ao conectar");
 			}
 			
-			conn.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

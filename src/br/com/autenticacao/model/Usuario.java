@@ -1,79 +1,63 @@
-package br.com.projetoAutenticacao.model;
+package br.com.autenticacao.model;
 
 public class Usuario {
-	
+
 	private int id;
 	private String nome;
-	private String login;
+	private String email;
 	private String senha;
-	private boolean isAtivo;
-	
-	
+	private Boolean isAtivo;
+
 	public Usuario() {
-		
+
 	}
-		
-	public Usuario(int id, String nome, String login, String senha, boolean isAtivo) {
-		super();
+
+	public Usuario(int id, String nome, String email, String senha, Boolean isAtivo) {
 		this.id = id;
 		this.nome = nome;
-		this.login = login;
+		this.email = email;
 		this.senha = senha;
 		this.isAtivo = isAtivo;
 	}
-
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public String getNome() {
 		return nome;
 	}
 
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-
 	public String getEmail() {
-		return login;
+		return email;
 	}
 
-
-	public void setEmail(String login) {
-		this.login = login;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
 
 	public String getSenha() {
 		return senha;
 	}
 
-
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
-
-	public boolean getIsAtivo() {
+	public Boolean getIsAtivo() {
 		return isAtivo;
 	}
 
-
-	public void setIsAtivo(boolean isAtivo) {
+	public void setIsAtivo(Boolean isAtivo) {
 		this.isAtivo = isAtivo;
 	}
-	
-	
-	
-	
 
 }
